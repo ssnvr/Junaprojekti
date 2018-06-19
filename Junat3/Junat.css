@@ -1,2 +1,12 @@
 ﻿body {
+
+}
+ul li {
+    display: inline-block;
+}
+#fr {
+    text-transform: capitalize;
+}
+#t {
+    text-transform: capitalize;
 }
