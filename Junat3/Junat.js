@@ -1,11 +1,10 @@
-﻿//<reference path="scripts/jquery-3.3.1.js" />
+﻿
 //Aarni ja Sara
 document.getElementById("nappi").addEventListener("click", fromWhere);
 var xhr = new XMLHttpRequest();
 var url;
 var lähtökaupunki;
 var kohdekaupunki;
-
 
 $.getJSON("https://rata.digitraffic.fi/api/v1/metadata/stations", function (data) {
     for (var i = 0; i < data.length; i++) {
@@ -22,7 +21,8 @@ function fromWhere() {
     lähtökaupunki = kaupungit1.value;
     kohdekaupunki = kaupungit2.value;
     var pvm;
-    pvm = $("#kalenteri").datepicker("option", "dateFormat", "yy-mm-dd").val();
+
+    pvm = $("#kalenteri").val();
     console.log(pvm);
     console.log(lähtökaupunki);
     console.log(kohdekaupunki);
@@ -36,12 +36,12 @@ function fromWhere() {
     xhr.onreadystatechange = valmis;
     xhr.send();
 
-
     function valmis() {
         if (xhr.readyState === 4) {
             console.log(xhr.responseText);
-
             var junantyyppi;
+            var laituri;
+            var peruutusteksti;
             var taulukko = JSON.parse(xhr.responseText);
             for (i in taulukko) {
                 console.log(i);
@@ -51,8 +51,19 @@ function fromWhere() {
                 else {
                     junantyyppi = "lähijuna";
                 }
-
-                document.getElementById("lista").innerHTML += "<ol>" + "Junavuoro: " + taulukko[i].trainNumber + " " + taulukko[i].trainType + " (" + junantyyppi + "), lähtöaika: " + new Date(taulukko[i].timeTableRows[i].scheduledTime).toLocaleTimeString() + ", saapumisaika: " + new Date(taulukko[i].timeTableRows[oikeaIndeksi()].scheduledTime).toLocaleTimeString() + ", laituri: " + taulukko[i].timeTableRows[i].commercialTrack;
+                if (taulukko[i].timeTableRows[i].commercialTrack == "") {
+                    laituri = "ei tiedossa";
+                }
+                else {
+                    laituri = taulukko[i].timeTableRows[i].commercialTrack;
+                }
+                if (taulukko[i].timeTableRows[i].cancelled == "true") {
+                    peruutusteksti = "VUORO PERUTTU! Terveisin VR :D";
+                }
+                else {
+                    peruutusteksti = "";
+                }
+                document.getElementById("lista").innerHTML += "<ol>" + peruutusteksti + "Junavuoro: " + taulukko[i].trainNumber + " " + taulukko[i].trainType + " (" + junantyyppi + "),  lähtöaika: " + new Date(taulukko[i].timeTableRows[i].scheduledTime).toLocaleTimeString().bold() + ", saapumisaika: " + new Date(taulukko[i].timeTableRows[oikeaIndeksi()].scheduledTime).toLocaleTimeString() + ", lähtölaituri: " + laituri;
                 function oikeaIndeksi() {
                     for (j in taulukko[i].timeTableRows) {
                         if (taulukko[i].timeTableRows[j].stationShortCode === kohdekaupunki) {
@@ -60,10 +71,7 @@ function fromWhere() {
                         }
                     }
                 }
-
-
             }
         }
-
     }
 }
