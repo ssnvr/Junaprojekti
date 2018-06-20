@@ -3,10 +3,21 @@
 }
 ul li {
     display: inline-block;
+
+}
+
+#lista {
+    font-weight: 100;
+    
 }
 #fr {
     text-transform: capitalize;
+
 }
 #t {
     text-transform: capitalize;
+
+}
+ol {
+    list-style-type:none;
 }

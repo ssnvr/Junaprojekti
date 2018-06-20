@@ -3,23 +3,39 @@
 <head>
     <meta charset="utf-8" />
     <link href="Junat.css" rel="stylesheet" />
-    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/jquery-ui-1.12.1.js"></script>
+
+    <!--<script src="Scripts/datepicker-fi.js"></script>-->
+    <script>
+
+        $(function () {
+            $("#kalenteri").datepicker($.datepicker.regional["fi"]);
+        });
+    </script>
+    <title>Junien aikatauluhaku</title>
 </head>
 
 <body>
+    <h1>Hae junien aikatauluja</h1>
     <form id="form1" runat="server">
         <div>
-            <input type="button" id="nappi" value="Aloita haku" />
-            <input type="text" id="fromwhere" value="Mistä" />
-            <input type="text" id="towhere" value="Mihin" />
+            <input type="button" id="nappi" value="Hae junat" />
+            <select id="kaupungit1"></select>
+            <select id="kaupungit2"></select>
+        </div>
+        <div>
+            <input type="text" id="kalenteri">
+            <!--<input type="datetime-local" value="Päivämäärä" id="1234" /><br />
+                                                                        <script>
+                                                                            document.getElementById("1234").toLocaleDateString('fi-FI');
+                                                                        </script>-->
         </div>
     </form>
+   
+    <h2>Hakemallasi välillä lähtevät junat: </h2>
+    <p id="lista"></p>
 
-    <ul style="list-style-type:none" id="lista">Lähtevät junat välillä <li id="fr"></li>-<li id="t"></li> : </ul>
-
-    <script>
-
-    </script>
 
 
     <script src="Junat.js"></script>
