@@ -21,3 +21,7 @@ ul li {
 ol {
     list-style-type:none;
 }
+.alert {
+    color: black;
+    background-image: url(https://as1.ftcdn.net/jpg/01/95/55/20/500_F_195552010_DaXeiiPL15MrQfBp9isnM7TVB8B2Ow6R.jpg)
+}
