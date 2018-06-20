@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Juna-aikataulut</title>
+
+    <link rel="shortcut icon" type="image/png" href="W6gsx9c.png" />
+    <link rel="shortcut icon" type="image/png" href="https://i.imgur.com/W6gsx9c.png" />
+
+    <!-- BOOTSTRAP CSS - Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- BOOTSTRAP CSS - Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--Oma stylesheet-->
+    <link href="Tyylit.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+</head>
+<body>
+    <center>
+        <div class="keskidiv">
+            <div id="col-sm-6">
+
+                <h1>JUNA-AIKATAULUT</h1>
+
+                <div class="navdiv">
+                    <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="nav navbar-left"><a href="Runko.html">Etusivu</a></li>
+                                    <li class="nav navbar-left"><a href="yleista.html">Yleistä</a></li>
+                                    <li class="nav navbar-left"><a href="historia.html">Historia</a></li>
+                                    <li class="nav navbar-left"><a href="myohastymiset.html">Myöhästymiset</a></li>
+                                    <li class="nav navbar-left"><a href="aikataulut.html">Aikataulut</a></li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kirjaudu <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <form class="navbar-form navbar-right">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Käyttäjätunnus">
+                                                    </div>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form class="navbar-form navbar-left">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Salasana">
+                                                    </div>
+                                                </form>
+                                            </li>
+                                            <li id="kirjauduBtn">
+                                                <button type="submit" class="btn btn-default" id="signinBtn">Kirjaudu</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div><!--Navdiv-sulku-->
+            </div><!--col-sm-6 -sulku-->
+        </div><!--keskidiv-sulku-->
+
+        <div class="aladiv">
+            <p class="info">
+                Hae ja katso junien aikatauluja valitsemiesi asemien ja päivämäärien mukaan.
+            </p>
+            <br />
+            <form id="form1" runat="server">
+                <div class="col-sm-6">
+                    <p class="miniots">
+                        <strong>Lähtöasema:</strong><br />
+                    </p>
+                    <select id="kaupungit1"></select>
+                    <input type="text" placeholder="Aika" id="aika" />
+                    <input type="date" id="kalenteri">
+                </div>
+
+                <div class="col-sm-6">
+                    <p class="miniotsRight">
+                        <strong>Pääteasema:</strong><br />
+                    </p>
+                    <select id="kaupungit2"></select>
+                    <br />
+                    <button type="button" id="switch" aria-label="switch">&#8646;</button>
+                    <input type="button" value="Hae" id="nappi" />
+                </div>
+            </form>
+            <br /><br />
+        </div>
+
+        <div class="ala-aladiv">
+            <div class="tiedot">
+                <br /><br /><br /><br /><br />
+                <!--Tähän tulostuu haettu aikatauludata-->
+                <strong>Lähtevät junat välillä:</strong>
+                <br /><br />
+                <p id="lista"></p>
+
+                <!--
+                  <ul style="list-style-type:none" id="lista">
+                      <li id="infovali"><strong>Lähtevät junat välillä:</strong></li>
+                      <li id="kaupungit1"></li> &#8594;
+                      <li id="kaupungit2"></li>
+                  </ul>
+                -->
+                <br /><br />
+            </div>
+        </div>
+        <div class="ala-ala-aladiv">
+            <div class="kappaleet">
+
+            </div>
+            <br />
+
+            <div id="kuvia">
+                <img src="https://images.pexels.com/photos/211052/pexels-photo-211052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" width="400" height="300" />
+            </div>
+            <br />
+            <footer>
+                Copyright &copy; 2018 Kairesalo Mikko, Koskelainen Aarni, Seunavaara Sara, Toivola Okku
+            </footer>
+
+
+        </div><!--ala-ala-aladiv-sulku-->
+
+    </center>
+
+    <script>
+        var time = new Date();
+        var currentTime = time.getHours() + ":" + time.getMinutes();
+
+        if (time.getMinutes() < 10) {
+            currentTime = time.getHours() + ":0" + time.getMinutes();
+        }
+
+        document.getElementById('aika').placeholder = currentTime;
+    </script>
+    <!-- BOOTSTRAP JS - Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="Toiminnallisuus.js"></script>
+</body>
+</html>

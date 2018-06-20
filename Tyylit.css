@@ -1,0 +1,216 @@
+﻿body {
+    background-image: url(https://images.pexels.com/photos/533630/pexels-photo-533630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-position: center;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+    text-align: center;
+    margin: 3% 25%;
+    z-index: 2;
+    font-family: 'Nunito', sans-serif;
+}
+
+.keskidiv {
+    width: 100%;
+    padding: 1% 0% 0% 0%;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px 10px 10px 10px;
+}
+
+.aladiv {
+    width: 100%;
+    padding: 5%;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.ala-aladiv {
+    width: 100%;
+    padding: 5%;
+    background: rgba(255,255,255,0.8);
+    margin: 0 0 3% 0;
+    border-radius: 0 0 10px 10px;
+    border-bottom: 1px gray solid;
+}
+
+.ala-ala-aladiv {
+    width: 100%;
+    padding: 5%;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
+}
+
+.tietosivut {
+    width: 100%;
+    padding: 5%;
+    background: rgba(255,255,255,0.8);
+    border-radius: 100px;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+a {
+    color: #dc771f;
+}
+
+nav {
+    background-color: #8546ea;
+    border-radius: 5px;
+}
+
+.asemat {
+    padding: 10px;
+}
+
+.miniots {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.miniotsRight {
+    float: left;
+    margin: 0 0 0 10%;
+    padding: 0;
+}
+
+#nappi {
+    width: 50%;
+    float: right;
+    margin: 10% 0% 2% 0%;
+    background-color: #2173d8;
+    color: #f9f9f9;
+    border-color: #2173d8;
+}
+
+#aika {
+    width: 35%;
+    margin: 10% 0% 2% 0%;
+    float: left;
+    display: inline-block;
+}
+
+#kalenteri {
+    margin: 10% 2% 2% 3%;
+    width: 44%;
+}
+
+#kaupungit1 {
+    width: 90%;
+    float: left;
+}
+
+#kaupungit2 {
+    width: 90%;
+    float: right;
+}
+
+#switch {
+    float: left;
+    margin: 0 0 0 -9%;
+}
+    
+.lista p{
+
+}
+
+#infovali {
+    font-size: 1.2em;
+    color: black;
+}
+
+.tiedot p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    list-style-type: none;
+    -webkit-padding-start: 0;
+    font-size: 0.9em;
+}
+
+    .tiedot ul li {
+        display: inline-block;
+        padding: 2px 5px;
+        margin: 0 0 3% 3%;
+        padding: 0;
+        text-align: center;
+        list-style-position: inside;
+    }
+
+#fr {
+    text-transform: capitalize;
+    color: green;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#t {
+    text-transform: capitalize;
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3em;
+    color: black;
+    padding: 5%;
+}
+
+h3 {
+    color: black;
+}
+
+.h3text {
+    color: black;
+    font-size: 1.2em;
+}
+
+.info {
+    margin: 0;
+    padding: 0;
+}
+
+col-sm-6 {
+    overflow: auto;
+    width: 65%;
+}
+
+.left {
+    text-align: left;
+    display: inline-block;
+}
+
+.right {
+    text-align: right;
+}
+
+.cal {
+    width: 45%;
+    margin: 10% 0 0 0;
+    padding: 0 10px;
+}
+
+.tiedot {
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.kappaleet {
+    margin: 5%;
+}
+
+.väri {
+    color: green;
+}
+
+footer {
+    font-size: 0.8em;
+}
