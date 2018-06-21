@@ -24,15 +24,15 @@ $.getJSON("https://rata.digitraffic.fi/api/v1/metadata/stations", function (data
     }
 });
 
-function muuta() {
+function muuta() {                          //vaihdetaan lähtö- ja kohdekaupungit päittäin
     var alkup = kaupungit1.value
     kaupungit1.value = kaupungit2.value;
     kaupungit2.value = alkup;
 }
 
-function fromWhere() {
+function fromWhere() {                      //varsinainen "pääfunktio"
 
-    document.getElementById("lista").innerHTML = "";
+    document.getElementById("lista").innerHTML = "";        //haetaan kaupungit 
     lähtökaupunki = kaupungit1.value;
     kohdekaupunki = kaupungit2.value;
 
@@ -53,7 +53,7 @@ function fromWhere() {
     function valmis() {
         if (xhr.readyState === 4) {
             console.log(xhr.responseText);
-            if (xhr.responseText.includes("TRAIN_NOT_FOUND")) {
+            if (xhr.responseText.includes("TRAIN_NOT_FOUND")) {         //Mikäli suoraa junayhteyttä ei ole
                 alert("Hakemiesi asemien välillä ei ole suoraa junayhteyttä");
             }
             var taulukko = JSON.parse(xhr.responseText); //parsitaan URL:sta tuleva JSON-teksti taulukoksi.
@@ -97,11 +97,11 @@ function fromWhere() {
                 else {
                     peruutusteksti = "";
                 }
-                for (j in taulukko[i].timeTableRows) {
-                    if (taulukko[i].timeTableRows[j].stationShortCode === kohdekaupunki && taulukko[i].timeTableRows[j].trainStopping === false) {
-                        eipysähdy = " HUOM! Juna ei pysähdy tällä asemalla";
-                    }
-                }
+                //for (j in taulukko[i].timeTableRows) {
+                //    if (taulukko[i].timeTableRows[j].stationShortCode === kohdekaupunki && taulukko[i].timeTableRows[j].trainStopping === false) {
+                //        eipysähdy = " HUOM! Juna ei pysähdy tällä asemalla";
+                //    }
+                //}
 
                 document.getElementById("lista").innerHTML += "<ol>" + peruutusteksti + "Junavuoro: " + taulukko[i].trainNumber + " " + taulukko[i].trainType + " (" + junantyyppi + "),  lähtöaika: " + lähtöaika + ", saapumisaika: " + saapumisaika + eipysähdy + ", lähtölaituri: " + laituri + ", kesto: " + msToTime(erotus);
                 function oikeaIndeksi() {
